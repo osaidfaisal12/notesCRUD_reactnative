@@ -13,7 +13,7 @@ import {NotesContext} from '../../store/NotesContext';
 import {Appearance} from 'react-native';
 
 const AllNotes = ({navigation}) => {
-  const {notes, addNotes, deleteNotes, isDarkMode, setIsDarkMode} =
+  const {notes, addNotes, deleteNotes, isDarkMode, setIsDarkMode, getNotes} =
     React.useContext(NotesContext);
 
   useEffect(() => {
@@ -22,7 +22,10 @@ const AllNotes = ({navigation}) => {
       setIsDarkMode(true);
     }
   }, []);
-  console.log(isDarkMode);
+
+  useEffect(() => {
+    getNotes()
+  },[])
 
   const styles = StyleSheet.create({
     container: {
